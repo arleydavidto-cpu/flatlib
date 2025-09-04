@@ -1,0 +1,38 @@
+ 
+
+# Datos de nacimiento de Persona A
+persona_a_info = {
+    "fecha": "1993-06-16",
+    "hora": "07:41",
+    "lat": 3.4516,
+    "lon": -76.5320
+}
+
+# Datos de nacimiento de Persona B
+persona_b_info = {
+    "fecha": "1993-08-06",
+    "hora": "15:50",
+    "lat": 3.4516,
+    "lon": -76.5320
+}
+
+# Crear objetos de fecha y lugar
+date_a = Datetime(persona_a_info["fecha"], persona_a_info["hora"], "+00:00")
+pos_a = GeoPos(str(persona_a_info["lat"]), str(persona_a_info["lon"]))
+
+date_b = Datetime(persona_b_info["fecha"], persona_b_info["hora"], "+00:00")
+pos_b = GeoPos(str(persona_b_info["lat"]), str(persona_b_info["lon"]))
+
+# Crear cartas natales
+chart_a = Chart(date_a, pos_a)
+chart_b = Chart(date_b, pos_b)
+
+# Obtener posiciones del Sol y la Luna
+sun_a = chart_a.get('SUN')
+moon_a = chart_a.get('MOON')
+sun_b = chart_b.get('SUN')
+moon_b = chart_b.get('MOON')
+
+print("Persona A:")
+print("Sol:", sun_a.sign)
+print("Luna:"
